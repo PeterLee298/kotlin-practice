@@ -75,7 +75,21 @@ fun main(args: Array<String>) {
         "India" to "New Delhi",
         "Australia" to "Canberra",
         "South Korea" to "Seoul",
-        "United Kingdom" to "London"
+        "United Kingdom" to "London",
+        "Italy" to "Rome",
+        "Spain" to "Madrid",
+        "Netherlands" to "Amsterdam",
+        "Sweden" to "Stockholm",
+        "Norway" to "Oslo",
+        "Denmark" to "Copenhagen",
+        "Finland" to "Helsinki",
+        "Switzerland" to "Bern",
+        "Poland" to "Warsaw",
+        "Austria" to "Vienna",
+        "Greece" to "Athens",
+        "Turkey" to "Ankara",
+        "Hungary" to "Budapest",
+        "Czech Republic" to "Prague"
     )
     val countries = countryToCapital?.run {
         putIfAbsent("France", "Paris")
@@ -85,11 +99,26 @@ fun main(args: Array<String>) {
     println(countryToCapital)
     println(countries)
 
+
+
+    val city = countryToCapital!!.keys.take(1)
+    println("Tale 1 : $city")
+
+    val city2 = countryToCapital!!.keys.drop(1)
+    println("Drop 1 : $city2")
+
     val output = countryToCapital!!.keys
         .asSequence()
-        .filter { it.startsWith("U") }
-        .map {"City: $it"}
+        .filter { it.startsWith("C") }
+        .map {"$it"}
         .joinToString()
-    println(output)
+    println("City Start With C : $output")
+
+    val output2 = countryToCapital!!.keys.asSequence()
+        .filter { it.startsWith("C") }
+        .take(2)
+        .map { "$it" }
+        .joinToString()
+    println("Take 2 City Start With C : $output2")
 
 }
